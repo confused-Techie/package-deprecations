@@ -12,18 +12,20 @@ function run(transformerPath, itemPaths) {
   for (let i = 0; i < itemPaths.length; i++) {
     const jsonFiles = findJsonFiles(itemPaths[i]);
 
-    for (let y = 0; y < jsonFiles.length; y++) {
-      const file = JSON.parse(fs.readFileSync(jsonFiles[y], { encoding: "utf8" }));
-      const fileName = path.parse(jsonFiles[y]).base;
+    if (Array.isArray(jsonFiles) && jsonFiles.length > 0) {
+      for (let y = 0; y < jsonFiles.length; y++) {
+        const file = JSON.parse(fs.readFileSync(jsonFiles[y], { encoding: "utf8" }));
+        const fileName = path.parse(jsonFiles[y]).base;
 
-      try {
-        const res = mod(fileName, file);
-        responses.push(`'${transformerPath}' transformed '${jsonFiles[y]}' without issue`);
-        // TODO
-        // What do we do with this? Lets follow suit with dirshift, and only care about errors
-      } catch(err) {
-        responses.push(err.toString());
-        errors++;
+        try {
+          const res = mod(fileName, file);
+          responses.push(`'${transformerPath}' transformed '${jsonFiles[y]}' without issue`);
+          // TODO
+          // What do we do with this? Lets follow suit with dirshift, and only care about errors
+        } catch(err) {
+          responses.push(err.toString());
+          errors++;
+        }
       }
     }
   }
