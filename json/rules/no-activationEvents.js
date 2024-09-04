@@ -5,9 +5,7 @@ module.exports = {
     type: "problem",
     docs: {
       description: "Disallow usage of `activationEvents`."
-    },
-    fixable: "code",
-    schema: []
+    }
   },
   create(context) {
     return {

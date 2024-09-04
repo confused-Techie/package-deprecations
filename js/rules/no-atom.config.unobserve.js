@@ -1,12 +1,10 @@
 
 module.exports = {
   meta: {
-    type: "problem",
+    type: "suggestion",
     docs: {
       description: "Warn on usage of `atom.config::unobserve`."
-    },
-    fixable: "code",
-    schema: []
+    }
   },
   create(context) {
     return {

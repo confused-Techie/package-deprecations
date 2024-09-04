@@ -4,9 +4,7 @@ module.exports = {
     type: "problem",
     docs: {
       description: "Disallow requiring `View` from `atom` module."
-    },
-    fixable: "code",
-    schema: []
+    }
   },
   create(context) {
     return {

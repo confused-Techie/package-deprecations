@@ -3,7 +3,7 @@ module.exports = {
   meta: {
     type: "problem",
     docs: {
-      description: "Disallow requring `$` from `atom` module."
+      description: "Disallow requiring `$` from `atom` module."
     }
   },
   create(context) {
@@ -27,7 +27,7 @@ module.exports = {
             if (
               node.id.properties[i].type === "Property" &&
               node.id.properties[i].value.type === "Identifier" &&
-              node.id.properties[i].value.name === "$"
+              node.id.properties[i].value.name === "$$"
             ) {
               doesRequireDollarSign = true;
             }
@@ -37,7 +37,7 @@ module.exports = {
         if (isAtomModule && doesRequireDollarSign) {
           context.report({
             node,
-            message: "Requiring `$` from `atom` is no longer supported. If you are using `space-pen`, please require `$` from `atom-space-pen-views`. Otherwise require `jquery` instead."
+            message: "Requiring `$$` from `atom` is no longer supported. Please require `atom-space-pen-views` instead: `{$$} = require 'atom-space-pen-views'`."
           });
         }
       }
