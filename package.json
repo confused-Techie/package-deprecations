@@ -11,6 +11,10 @@
   "author": "confused-Techie",
   "license": "MIT",
   "dependencies": {
-    "jscodeshift": "^17.0.0"
-  }
+    "eslint": "^9.9.1",
+    "eslint-plugin-jsonc": "^2.16.0",
+    "jscodeshift": "^17.0.0",
+    "jsonc-eslint-parser": "^2.4.0"
+  },
+  "activationEvents": []
 }

@@ -1,5 +1,20 @@
 # Package Deprecations
 
+## WARNING: WIP
+
+This repository is ongoing large scale changes and is in a state of slight chaos.
+While originally this repositories goals were going to be achieved via `jscodeshift` and a slew of tools designed in a similar manner,
+it soon became obvious that this wasn't the right tool for the job.
+
+Instead the approach is shifting to a more linting like one. Using `eslint` to power the main cycle of work,
+scanning code with plugins and parsers, and all custom rules to catch the issues we care about, and report them.
+
+As this repository is much more concerned with just knowing and reporting errors, it makes much more sense to do so like this, rather than handicap larger tools meant to automatically fix them.
+
+In this way we can scan a community package, and get back issues with that repo that require fixing. So we are aware of issues, and can even assign severity and documentation to them. Ideally allowing anyone's usage of such a tool.
+
+---
+
 The goal of this repository is to provide the tooling required to quickly scan a Pulsar community package, and alert of any deprecations it may have.
 
 These deprecations vary in nature and source, so we need the tools flexible enough to do so.

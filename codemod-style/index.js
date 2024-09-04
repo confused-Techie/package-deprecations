@@ -1,7 +1,7 @@
 const path = require("node:path");
 const fs = require("fs");
-//const { run: jscodeshift } = require("jscodeshift/src/Runner");
-const jscodeshift = require("./jscodeshift/index.js");
+const { run: jscodeshift } = require("jscodeshift/src/Runner");
+//const jscodeshift = require("./jscodeshift/index.js");
 const dirshift = require("./dirshift/index.js");
 const jsonshift = require("./jsonshift/index.js");
 
@@ -66,7 +66,7 @@ function findTransformerType(tPath) {
     } else if (transformType === "json") {
       res = await jsonshift(transformPath, paths);
     }
-    console.log(res);
+    
     if (res.error > 0) {
       failedTransforms.push({
         transformer: transformer,
