@@ -28,6 +28,9 @@ const jsonPlugin = require("./json/plugin.js");
           "js/no-atom.config.unobserve": "error",
           "js/no-require-view": "error",
           "js/no-require-editorView": "error",
+          "js/no-require-scrollView": "error",
+          "js/no-require-selectListView": "error",
+          "js/no-require-textEditorView": "error",
           "js/no-require-dollarSign": "error",
           "js/no-require-doubleDollarSign": "error",
           "js/no-require-tripleDollarSign": "error"

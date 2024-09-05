@@ -63,6 +63,40 @@ Requiring `EditorView` from `atom` is no longer supported.
 Please require `TextEditorView` from `atom-space-pen-view` instead: `{TextEditorView} = require 'atom-space-pen-views'`
 .Add `"atom-space-pen-views": "^2.0.3"` to your package dependencies.
 
+## js/no-require-scrollView
+
+* _Breaking Pulsar/Atom API Version_: `v1.0.0`
+* _Severity_: `problem`
+* _Source_: [`benogle/deprecation-data`](https://github.com/benogle/deprecation-data)
+
+Requiring `ScrollView` from `atom` is no longer supported.
+Please require `ScrollView` from `atom-space-pen-view` instead: `{ScrollView} = require 'atom-space-pen-views'`.
+Note that the API has changed slightly!
+Please read the docs at https://github.com/atom/atom-space-pen-views.
+Add `"atom-space-pen-views": "^2.0.3"` to your package dependencies.
+
+## js/no-require-selectListView
+
+* _Breaking Pulsar/Atom API Version_: `v1.0.0`
+* _Severity_: `problem`
+* _Source_: [`benogle/deprecation-data`](https://github.com/benogle/deprecation-data)
+
+Requiring `SelectListView` from `atom` is no longer supported.
+Please require `SelectListView` from `atom-space-pen-view` instead: `{SelectListView} = require 'atom-space-pen-views'`.
+Note that the API has changed slightly!
+Please read the docs at https://github.com/atom/atom-space-pen-views.
+Add `"atom-space-pen-views": "^2.0.3"` to your package dependencies.
+
+## js/no-require-textEditorView
+
+* _Breaking Pulsar/Atom API Version_: `v1.0.0`
+* _Severity_: `problem`
+* _Source_: [`benogle/deprecation-data`](https://github.com/benogle/deprecation-data)
+
+Requiring `TextEditorView` from `atom` is no longer supported.
+Please require `TextEditorView` from `atom-space-pen-view` instead: `{TextEditorView} = require 'atom-space-pen-views'`.
+Add `"atom-space-pen-views": "^2.0.3"` to your package dependencies.
+
 ## json/no-activationEvents
 
 * _Breaking Pulsar/Atom API Version_: `v1.0.0`
