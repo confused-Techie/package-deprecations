@@ -32,6 +32,16 @@ Requiring `$$` from `atom` is no longer supported.
 Please require `atom-space-pen-views` instead: `{$$} = require 'atom-space-pen-views'`.
 Add `"atom-space-pen-views": "^2.0.3"` to your package dependencies.
 
+## js/no-require-tripleDollarSign
+
+* _Breaking Pulsar/Atom API Version_: `v1.0.0`
+* _Severity_: `problem`
+* _Source_: [`benogle/deprecation-data`](https://github.com/benogle/deprecation-data)
+
+Requiring `$$$` from `atom` is no longer supported.
+Please require `atom-space-pen-views` instead: `{$$$} = require 'atom-space-pen-views'`.
+Add `"atom-space-pen-views": "^2.0.3"` to your package dependencies.
+
 ## js/no-require-view
 
 * _Breaking Pulsar/Atom API Version_: `v1.0.0`
@@ -41,6 +51,17 @@ Add `"atom-space-pen-views": "^2.0.3"` to your package dependencies.
 Requiring `View` from `atom` is no longer supported.
 Please require `atom-space-pen-views` instead: `{View} = require 'atom-space-pen-views'`.
 Add `"atom-space-pen-views": "^2.0.3"` to your package dependencies.
+
+
+## js/no-require-editorView
+
+* _Breaking Pulsar/Atom API Version_: `v1.0.0`
+* _Severity_: `problem`
+* _Source_: [`benogle/deprecation-data`](https://github.com/benogle/deprecation-data)
+
+Requiring `EditorView` from `atom` is no longer supported.
+Please require `TextEditorView` from `atom-space-pen-view` instead: `{TextEditorView} = require 'atom-space-pen-views'`
+.Add `"atom-space-pen-views": "^2.0.3"` to your package dependencies.
 
 ## json/no-activationEvents
 

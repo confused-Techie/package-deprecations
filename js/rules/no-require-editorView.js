@@ -3,14 +3,14 @@ module.exports = {
   meta: {
     type: "problem",
     docs: {
-      description: "Disallow requiring `$$` from `atom` module."
+      description: "Disallow requiring `EditorView` from `atom` module."
     }
   },
   create(context) {
     return {
       VariableDeclarator(node) {
         let isAtomModule = false;
-        let doesRequireDollarSign = false;
+        let doesRequireEditorView = false;
 
         if (
           node.init.type === "CallExpression" &&
@@ -27,19 +27,20 @@ module.exports = {
             if (
               node.id.properties[i].type === "Property" &&
               node.id.properties[i].value.type === "Identifier" &&
-              node.id.properties[i].value.name === "$$"
+              node.id.properties[i].value.name === "EditorView"
             ) {
-              doesRequireDollarSign = true;
+              doesRequireEditorView = true;
             }
           }
         }
 
-        if (isAtomModule && doesRequireDollarSign) {
+        if (isAtomModule && doesRequireEditorView) {
           context.report({
             node,
-            message: "Requiring `$$` from `atom` is no longer supported. Please require `atom-space-pen-views` instead: `{$$} = require 'atom-space-pen-views'`."
+            message: "Requiring `EditorView` from `atom` is no longer supported. Please require `TextEditorView` from `atom-space-pen-view` instead."
           });
         }
+
       }
     };
   }
