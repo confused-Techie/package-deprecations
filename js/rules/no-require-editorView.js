@@ -1,3 +1,4 @@
+const utils = require("../utils.js");
 
 module.exports = {
   meta: {
@@ -9,30 +10,8 @@ module.exports = {
   create(context) {
     return {
       VariableDeclarator(node) {
-        let isAtomModule = false;
-        let doesRequireEditorView = false;
-
-        if (
-          node.init.type === "CallExpression" &&
-          node.init.callee.type === "Identifier" &&
-          node.init.callee.name === "require" &&
-          Array.isArray(node.init.arguments) &&
-          node.init.arguments[0].value === "atom"
-        ) {
-          isAtomModule = true;
-        }
-
-        if (node.id.type === "ObjectPattern" && Array.isArray(node.id.properties)) {
-          for (let i = 0; i < node.id.properties.length; i++) {
-            if (
-              node.id.properties[i].type === "Property" &&
-              node.id.properties[i].value.type === "Identifier" &&
-              node.id.properties[i].value.name === "EditorView"
-            ) {
-              doesRequireEditorView = true;
-            }
-          }
-        }
+        let isAtomModule = utils.variableDeclarator_requireModule(node, "atom");
+        let doesRequireEditorView = utils.variableDeclarator_objectAssign(node, "EditorView");
 
         if (isAtomModule && doesRequireEditorView) {
           context.report({
