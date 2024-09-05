@@ -14,6 +14,8 @@ const plugin = {
     "no-require-dollarSign": require("./rules/no-require-dollarSign.js"),
     "no-require-doubleDollarSign": require("./rules/no-require-doubleDollarSign.js"),
     "no-require-tripleDollarSign": require("./rules/no-require-tripleDollarSign.js"),
+    "no-atom.services": require("./rules/no-atom.services.js"),
+    "no-atom.workspaceView": require("./rules/no-atom.workspaceView.js"),
   }
 };
 

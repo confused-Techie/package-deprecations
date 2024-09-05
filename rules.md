@@ -97,6 +97,25 @@ Requiring `TextEditorView` from `atom` is no longer supported.
 Please require `TextEditorView` from `atom-space-pen-view` instead: `{TextEditorView} = require 'atom-space-pen-views'`.
 Add `"atom-space-pen-views": "^2.0.3"` to your package dependencies.
 
+## js/no-atom.services
+
+* _Breaking Pulsar/Atom API Version_: `v1.0.0`
+* _Severity_: `problem`
+* _Source_: [`benogle/deprecation-data`](https://github.com/benogle/deprecation-data), [`atom/atom@v1.0.0`](https://github.com/atom/atom/blob/v1.0.0/src/atom.coffee#L46)
+
+`atom.services` is no longer available.
+To register service providers and consumers, use the `providedServices` and `consumedServices` fields in your package's `package.json`.
+
+## js/no-atom.workspaceView
+
+* _Breaking Pulsar/Atom API Version_: `v1.0.0`
+* _Severity_: `problem`
+* _Source_: [`benogle/deprecation-data`](https://github.com/benogle/deprecation-data), [`atom/atom@v1.0.0`](https://github.com/atom/atom/blob/v1.0.0/src/atom.coffee#L38)
+
+`atom.workspaceView` is no longer available.
+In most cases you will not need the view. See the Workspace docs for alternatives: https://atom.io/docs/api/latest/Workspace.
+If you do need the view please use `atom.views.getView(atom.workspace)`, which returns an HTMLElement.
+
 ## json/no-activationEvents
 
 * _Breaking Pulsar/Atom API Version_: `v1.0.0`

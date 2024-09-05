@@ -33,7 +33,9 @@ const jsonPlugin = require("./json/plugin.js");
           "js/no-require-textEditorView": "error",
           "js/no-require-dollarSign": "error",
           "js/no-require-doubleDollarSign": "error",
-          "js/no-require-tripleDollarSign": "error"
+          "js/no-require-tripleDollarSign": "error",
+          "js/no-atom.services": "error",
+          "js/no-atom.workspaceView": "error"
         }
       },
       {

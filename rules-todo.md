@@ -19,9 +19,9 @@ This document contains deprecations rules that have yet to be implemented.
 
 * Are you trying to listen for the 'view-tail-large-files:up' Atom command with `jQuery::on`? `jQuery::trigger` can no longer be used to listen for Atom commands. Please use `atom.commands.add` instead. See the docs at https://atom.io/docs/api/latest/CommandRegistry#instance-add for details.
 
-* atom.services is no longer available. To register service providers and consumers, use the `providedServices` and `consumedServices` fields in your package's package.json.
+> atom.services is no longer available. To register service providers and consumers, use the `providedServices` and `consumedServices` fields in your package's package.json.
 
-* atom.workspaceView is no longer available. In most cases you will not need the view. See the Workspace docs for alternatives: https://atom.io/docs/api/latest/Workspace. If you do need the view, please use `atom.views.getView(atom.workspace)`, which returns an HTMLElement.
+> atom.workspaceView is no longer available. In most cases you will not need the view. See the Workspace docs for alternatives: https://atom.io/docs/api/latest/Workspace. If you do need the view, please use `atom.views.getView(atom.workspace)`, which returns an HTMLElement.
 
 * Call .dispose() on the Disposable returned from ::addOpener instead
 
