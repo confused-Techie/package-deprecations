@@ -35,7 +35,11 @@ const jsonPlugin = require("./json/plugin.js");
           "js/no-require-doubleDollarSign": "error",
           "js/no-require-tripleDollarSign": "error",
           "js/no-atom.services": "error",
-          "js/no-atom.workspaceView": "error"
+          "js/no-atom.workspaceView": "error",
+          "js/no-atom.syntax": "error",
+          "js/no-atom.registerRepresentationClass": "error",
+          "js/no-atom.registerRepresentationClasses": "error",
+          "js/no-atom.workspace.openSync-changeFocus": "error"
         }
       },
       {

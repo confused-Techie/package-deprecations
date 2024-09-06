@@ -35,7 +35,25 @@ function variableDeclarator_objectAssign(node, objectName) {
   return assignsName;
 }
 
+// When the initial node is a MemberExpression:
+// Determine the variable name, and it's initial method: ex - `atom.method`
+function memberExpression_matchMethods(node, initial, method) {
+  if (
+    node.property.type === "Identifier" &&
+    node.object.type === "MemberExpression" &&
+    node.object.property.type === "Identifier" &&
+    node.object.property.name === method &&
+    node.object.object.type === "Identifier" &&
+    node.object.object.name === initial
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 module.exports = {
   variableDeclarator_requireModule,
   variableDeclarator_objectAssign,
+  memberExpression_matchMethods,
 };

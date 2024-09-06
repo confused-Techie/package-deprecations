@@ -181,7 +181,7 @@ This document contains deprecations rules that have yet to be implemented.
 
 * The `changeFocus` option has been renamed to `activatePane`
 
-* The atom.syntax global is deprecated. Use atom.grammars instead.
+> The atom.syntax global is deprecated. Use atom.grammars instead.
 
 * The atom.workspaceView.statusBar global is deprecated. The global was previously being assigned by the status-bar package, but Atom packages should never assign globals. In the future, this problem will be solved by an inter-package communication API available on `atom.services`. For now, you can get a reference to the `status-bar` element via `document.querySelector('status-bar')`.
 

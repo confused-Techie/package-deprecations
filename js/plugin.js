@@ -16,6 +16,10 @@ const plugin = {
     "no-require-tripleDollarSign": require("./rules/no-require-tripleDollarSign.js"),
     "no-atom.services": require("./rules/no-atom.services.js"),
     "no-atom.workspaceView": require("./rules/no-atom.workspaceView.js"),
+    "no-atom.syntax": require("./rules/no-atom.syntax.js"),
+    "no-atom.registerRepresentationClass": require("./rules/no-atom.registerRepresentationClass.js"),
+    "no-atom.registerRepresentationClasses": require("./rules/no-atom.registerRepresentationClasses.js"),
+    "no-atom.workspace.openSync-changeFocus": require("./rules/no-atom.workspace.openSync-changeFocus.js"),
   }
 };
 

@@ -116,6 +116,41 @@ To register service providers and consumers, use the `providedServices` and `con
 In most cases you will not need the view. See the Workspace docs for alternatives: https://atom.io/docs/api/latest/Workspace.
 If you do need the view please use `atom.views.getView(atom.workspace)`, which returns an HTMLElement.
 
+## js/no-atom.syntax
+
+* _Breaking Pulsar/Atom API Version_: `v1.0.0`
+* _Severity_: `problem`
+* _Source_: [`benogle/deprecation-data`](https://github.com/benogle/deprecation-data), [`atom/atom@v1.0.0`](https://github.com/atom/atom/blob/v1.0.0/src/atom.coffee#L279)
+
+The `atom.syntax` global is deprecated. Use `atom.grammars` instead.
+
+## js/no-atom.registerRepresentationClass
+
+* _Breaking Pulsar/Atom API Version_: `v1.0.0`
+* _Severity_: `problem`
+* _Source_: [`atom/atom@v1.0.0`](https://github.com/atom/atom/blob/v1.0.0/src/atom.coffee#L864)
+
+`atom.registerRepresentationClass` is no longer available.
+Callers should be converted to use `atom.deserializers`.
+
+## js/no-atom.registerRepresentationClasses
+
+* _Breaking Pulsar/Atom API Version_: `v1.0.0`
+* _Severity_: `problem`
+* _Source_: [`atom/atom@v1.0.0`](https://github.com/atom/atom/blob/v1.0.0/src/atom.coffee#L868)
+
+`atom.registerRepresentationClasses` is no longer available.
+Callers should be converted to use `atom.deserializers`.
+
+## js/no-atom.workspace.openSync-changeFocus
+
+* _Breaking Pulsar/Atom API Version_: `v1.0.0`
+* _Severity_: `problem`
+* _Source_: [`benogle/deprecation-data`](https://github.com/benogle/deprecation-data), [`atom/atom@v1.0.0`](https://github.com/atom/atom/blob/v1.0.0/src/workspace.coffee#L405)
+
+In `atom.workspace.openSync()` options:
+The `changeFocus` option has been renamed to `activatePane`.
+
 ## json/no-activationEvents
 
 * _Breaking Pulsar/Atom API Version_: `v1.0.0`
