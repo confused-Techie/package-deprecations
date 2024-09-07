@@ -179,7 +179,7 @@ This document contains deprecations rules that have yet to be implemented.
 
 * TextEditor::on is deprecated. Use documented event subscription methods instead.
 
-* The `changeFocus` option has been renamed to `activatePane`
+> The `changeFocus` option has been renamed to `activatePane`
 
 > The atom.syntax global is deprecated. Use atom.grammars instead.
 

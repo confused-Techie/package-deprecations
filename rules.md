@@ -151,6 +151,15 @@ Callers should be converted to use `atom.deserializers`.
 In `atom.workspace.openSync()` options:
 The `changeFocus` option has been renamed to `activatePane`.
 
+## js/no-atom.workspace.openURIInPane-changeFocus
+
+* _Breaking Pulsar/Atom API Version_: `v1.0.0`
+* _Severity_: `problem`
+* _Source_: [`benogle/deprecation-data`](https://github.com/benogle/deprecation-data), [`atom/atom@v1.0.0`](https://github.com/atom/atom/blob/v1.0.0/src/workspace.coffee#L426)
+
+In `atom.workspace.openURIInPane()` options:
+The `changeFocus` option has been renamed to `activatePane`.
+
 ## json/no-activationEvents
 
 * _Breaking Pulsar/Atom API Version_: `v1.0.0`

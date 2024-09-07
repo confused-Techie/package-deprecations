@@ -3,7 +3,7 @@ module.exports = {
   meta: {
     type: "problem",
     docs: {
-      description: "Disallow `changeFocus` option in `atom.workspace.openSync` opts."
+      description: "Disallow `changeFocus` option in `atom.workspace.openURIInPane` opts."
     }
   },
   create(context) {
@@ -17,9 +17,9 @@ module.exports = {
           node.callee.object.type === "Identifier" &&
           node.callee.object.name === "workspace" &&
           node.callee.property.type === "Identifier" &&
-          node.callee.property.name === "openSync"
+          node.callee.property.name === "openURIInPane"
         ) {
-          // matches `workspace.openSync()`
+          // matches `workspace.openURIInPane()`
           matches = true;
         }
 
@@ -32,9 +32,9 @@ module.exports = {
           node.callee.object.property.type === "Identifier" &&
           node.callee.object.property.name === "workspace" &&
           node.callee.property.type === "Identifier" &&
-          node.callee.property.name === "openSync"
+          node.callee.property.name === "openURIInPane"
         ) {
-          // matches `atom.workspace.openSync()`
+          // matches `atom.workspace.openURIInPane`
           matches = true;
         }
 
@@ -50,7 +50,7 @@ module.exports = {
                   ) {
                     context.report({
                       node,
-                      message: "`atom.workspace.openSync` Opts: The `changeFocus` option has been renamed to `activatePane`."
+                      message: "`atom.workspace.openURIInPane` Opts: The `changeFocus` option has been renamed to `activatePane`."
                     });
                   }
                 }
