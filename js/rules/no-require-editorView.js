@@ -5,7 +5,19 @@ module.exports = {
     type: "problem",
     docs: {
       description: "Disallow requiring `EditorView` from `atom` module."
+    },
+    messages: {
+      default: "Requiring `EditorView` from `atom` is no longer supported. Please require `TextEditorView` from `atom-space-pen-view` instead."
     }
+  },
+  test: {
+    valid: [{
+      code: "const { TextEditorView } = require('atom-space-pen-views');"
+    }],
+    invalid: [{
+      code: "const { EditorView } = require('atom');",
+      errors: [{ messageId: "default" }]
+    }]
   },
   create(context) {
     return {
@@ -16,7 +28,7 @@ module.exports = {
         if (isAtomModule && doesRequireEditorView) {
           context.report({
             node,
-            message: "Requiring `EditorView` from `atom` is no longer supported. Please require `TextEditorView` from `atom-space-pen-view` instead."
+            messageId: "default"
           });
         }
 

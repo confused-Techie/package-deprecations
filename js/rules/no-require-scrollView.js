@@ -5,7 +5,19 @@ module.exports = {
     type: "problem",
     docs: {
       description: "Disallow requiring `ScrollView` from `atom` module."
+    },
+    messages: {
+      default: "Requring `ScrollView` from `atom` is no longer supported. Please require `ScrollView` from `atom-space-pen-views` instead."
     }
+  },
+  test: {
+    valid: [{
+      code: "const { ScrollView } = require('atom-space-pen-views');"
+    }],
+    invalid: [{
+      code: "const { ScrollView } = require('atom');",
+      errors: [{ messageId: "default" }]
+    }]
   },
   create(context) {
     return {
@@ -16,7 +28,7 @@ module.exports = {
         if (isAtomModule && doesRequireScrollView) {
           context.report({
             node,
-            message: "Requring `ScrollView` from `atom` is no longer supported. Please require `ScrollView` from `atom-space-pen-view` instead."
+            messageId: "default"
           });
         }
 

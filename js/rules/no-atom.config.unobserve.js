@@ -4,7 +4,19 @@ module.exports = {
     type: "suggestion",
     docs: {
       description: "Warn on usage of `atom.config::unobserve`."
+    },
+    messages: {
+      default: "Config::unobserve no longer does anything. Call `.dispose()` on the object returned by Config::observe instead."
     }
+  },
+  test: {
+    valid: [{
+      code: "const val = atom.config.observe('setting'); val.dispose();"
+    }],
+    invalid: [{
+      code: "atom.config.unobserve('setting', () => { doThing(); })",
+      errors: [{ messageId: "default" }]
+    }]
   },
   create(context) {
     return {
@@ -20,7 +32,7 @@ module.exports = {
         ) {
           context.report({
             node,
-            message: "Config::unobserve no longer does anything. Call `.dispose()` on the object returned by Config::observe instead."
+            messageId: "default"
           });
         }
       }

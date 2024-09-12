@@ -5,7 +5,19 @@ module.exports = {
     type: "problem",
     docs: {
       description: "Disallow requiring `$$$` from `atom` module."
+    },
+    messages: {
+      default: "Requiring `$$$` from `atom` is no longer supported. Please require `atom-space-pen-views` instead: `{$$$} = require 'atom-space-pen-views'`."
     }
+  },
+  test: {
+    valid: [{
+      code: "const { $$$ } = require('atom-space-pen-views');"
+    }],
+    invalid: [{
+      code: "const { $$$ } = require('atom');",
+      errors: [{ messageId: "default" }]
+    }]
   },
   create(context) {
     return {
@@ -16,7 +28,7 @@ module.exports = {
         if (isAtomModule && doesRequireDollarSign) {
           context.report({
             node,
-            message: "Requiring `$$$` from `atom` is no longer supported. Please require `atom-space-pen-views` instead: `{$$$} = require 'atom-space-pen-views'`."
+            messageId: "default"
           });
         }
       }

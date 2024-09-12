@@ -5,7 +5,19 @@ module.exports = {
     type: "problem",
     docs: {
       description: "Disallow requiring `SelectListView` from `atom` module."
+    },
+    messages: {
+      default: "Requiring `SelectListView` from `atom` is no longer supported. Please require `SelectListView` from `atom-space-pen-views` instead."
     }
+  },
+  test: {
+    valid: [{
+      code: "const { SelectListView } = require('atom-space-pen-views');"
+    }],
+    invalid: [{
+      code: "const { SelectListView } = require('atom');",
+      errors: [{ messageId: "default" }]
+    }]
   },
   create(context) {
     return {
@@ -16,7 +28,7 @@ module.exports = {
         if (isAtomModule && doesRequireSelectListView) {
           context.report({
             node,
-            message: "Requiring `SelectListView` from `atom` is no longer supported. Please require `SelectListView` from `atom-space-pen-view` instead."
+            messageId: "default"
           });
         }
 
