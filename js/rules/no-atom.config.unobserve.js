@@ -16,6 +16,10 @@ module.exports = {
     invalid: [{
       code: "atom.config.unobserve('setting', () => { doThing(); })",
       errors: [{ messageId: "default" }]
+    }, {
+      // Example: https://github.com/bsnux/linter-python-pep8/blob/v0.2.0/lib/linter-python-pep8.coffee#L31
+      code: "atom.config.unobserve('linter-python-pep8.pep8DirToExecutable');",
+      errors: [{ messageId: "default" }]
     }]
   },
   create(context) {

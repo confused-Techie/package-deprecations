@@ -10,10 +10,6 @@ function runner(ruleTester, ruleName, ruleModule, ruleType) {
       invalid: ruleModule?.test?.invalid ?? []
     };
 
-    if (ruleModule?.test?.filename) {
-      ruleObject.name = ruleModule.test.filename;
-    }
-
     ruleTester.run(
       `${ruleType}/${ruleName}`,
       ruleModule,
