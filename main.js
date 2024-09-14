@@ -43,6 +43,8 @@ const jsonPlugin = require("./json/plugin.js");
           "js/no-atom.showSaveDialogSync": "warn",
           "js/no-promise.done": "warn",
           "js/no-dock.getActiveTextEditor": "warn",
+          "js/useString-path.dirname": "warn",
+          "js/no-atom.workspace.paneContainer": "warn"
         }
       },
       {

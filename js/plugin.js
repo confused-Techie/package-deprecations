@@ -5,6 +5,7 @@ const plugin = {
     version: "1.0.0"
   },
   rules: {
+    // v1.0.0 deprecations
     "no-atom.config.unobserve": require("./rules/no-atom.config.unobserve.js"),
     "no-require-view": require("./rules/no-require-view.js"),
     "no-require-editorView": require("./rules/no-require-editorView.js"),
@@ -20,9 +21,12 @@ const plugin = {
     "no-atom.registerRepresentationClass": require("./rules/no-atom.registerRepresentationClass.js"),
     "no-atom.registerRepresentationClasses": require("./rules/no-atom.registerRepresentationClasses.js"),
     "rename-atom.workspace-changeFocus": require("./rules/rename-atom.workspace-changeFocus.js"),
+    // v1.120.0 deprecations
     "no-atom.showSaveDialogSync": require("./rules/no-atom.showSaveDialogSync.js"),
     "no-promise.done": require("./rules/no-promise.done.js"),
     "no-dock.getActiveTextEditor": require("./rules/no-dock.getActiveTextEditor.js"),
+    "useString-path.dirname": require("./rules/useString-path.dirname.js"),
+    "no-atom.workspace.paneContainer": require("./rules/no-atom.workspace.paneContainer.js"),
   }
 };
 

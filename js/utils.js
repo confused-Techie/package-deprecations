@@ -52,8 +52,32 @@ function memberExpression_matchMethods(node, initial, method) {
   }
 }
 
+function isString(value) {
+  if (typeof value !== "string") {
+    return false;
+  }
+
+  if (value.startsWith("\"") && value.endsWith("\"")) {
+    // double quotes
+    return true;
+  }
+
+  if (value.startsWith("'") && value.endsWith("'")) {
+    // single quotes
+    return true;
+  }
+
+  if (value.startsWith("`") && value.endsWith("`")) {
+    // template literal
+    return true;
+  }
+
+  return false;
+}
+
 module.exports = {
   variableDeclarator_requireModule,
   variableDeclarator_objectAssign,
   memberExpression_matchMethods,
+  isString,
 };

@@ -213,6 +213,29 @@ should cover the vast majority of issues.
 Signed-off-by: Max Brunsfeld <maxbrunsfeld@gmail.com>
 ```
 
+## js/useString-path.dirname
+
+* _Deprecated Pulsar/Atom API Version_: `v1.12.0`
+* _Severity_: `warn`
+* _Source_: [`atom/atom#12300`](https://github.com/atom/atom/pull/12300), [`pulsar-edit/pulsar #c876fd7`](https://github.com/atom/atom/commit/c876fd76f8daf7c3bd5932cdb488f17980197698)
+
+Argument to `path.dirname` must be a string.
+
+This API endpoint was deprecated by [`@thomasjo`](https://github.com/thomasjo) back in Aug 2, 2016.
+It was deprecated when upgrading the Electron version from `v0.37.8` to `v1.3.5` which bumped Atom to Node `v6` causing breaking changes in many core modules.
+
+
+## js/no-atom.workspace.paneContainer
+
+* _Deprecated Pulsar/Atom API Version_: `v1.17.0`
+* _Severity_: `warn`
+* _Source_: [`atom/atom#14143`](https://github.com/atom/atom/pull/14143), [`pulsar-edit/pulsar #40b9fd9`](https://github.com/pulsar-edit/pulsar/commit/40b9fd9f5dcd7fa8474cd15fdc7fb7298a989705)
+
+`atom.workspace.paneContainer` has always been private, but it is now gone.
+Please use `atom.workspace.getCenter()` instead and consult the workspace API docs for public methods.
+
+This API endpoint was deprecated by [`@nathansobo`](https://github.com/nathansobo) and [`@maxbrunsfeld`](https://github.com/atom/atom/commits?author=maxbrunsfeld) back in Apr 6, 2017.
+
 ## js/no-dock.getActiveTextEditor
 
 * _Deprecated Pulsar/Atom API Version_: `v1.19.0`
