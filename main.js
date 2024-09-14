@@ -44,7 +44,8 @@ const jsonPlugin = require("./json/plugin.js");
           "js/no-promise.done": "warn",
           "js/no-dock.getActiveTextEditor": "warn",
           "js/useString-path.dirname": "warn",
-          "js/no-atom.workspace.paneContainer": "warn"
+          "js/no-atom.workspace.paneContainer": "warn",
+          "js/modify-atom.views.addViewProvider-argumentsLength": "warn"
         }
       },
       {

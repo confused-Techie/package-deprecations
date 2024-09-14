@@ -234,7 +234,7 @@ It was deprecated when upgrading the Electron version from `v0.37.8` to `v1.3.5`
 `atom.workspace.paneContainer` has always been private, but it is now gone.
 Please use `atom.workspace.getCenter()` instead and consult the workspace API docs for public methods.
 
-This API endpoint was deprecated by [`@nathansobo`](https://github.com/nathansobo) and [`@maxbrunsfeld`](https://github.com/atom/atom/commits?author=maxbrunsfeld) back in Apr 6, 2017.
+This API endpoint was deprecated by [`@nathansobo`](https://github.com/nathansobo) and [`@maxbrunsfeld`](https://github.com/maxbrunsfeld) back in Apr 6, 2017.
 
 ## js/no-dock.getActiveTextEditor
 
@@ -247,6 +247,16 @@ Use `atom.workspace.getActiveTextEditor()` instead.
 
 This API endpoint was deprecated by [`@jsonrudolph`](https://github.com/atom/atom/commits?author=jasonrudolph) back in Jun 1, 2017.
 It became deprecated when Atom decided to officially deprecate any text editors in Docks, allowing them only in the workspace pane.
+
+## js/modify-atom.views.addViewProvider-argumentsLength
+
+* _Deprecated Pulsar/Atom API Version_: `v0.153.0`
+* _Severity_: `warn`
+* _Source_: [`atom/atom#4365`](https://github.com/atom/atom/pull/4365), [`pulsar-edit/pulsar #9a9347e`](https://github.com/pulsar-edit/pulsar/commit/9a9347e3a50bd8e0a91fa873111890345ba00dbb)
+
+`atom.views.addViewProvider` now takes 2 arguments: a model constructor and a createView function.
+
+This API endpoint was deprecated by [`@nathansobo`](https://github.com/nathansobo) and [`@maxbrunsfeld`](https://github.com/maxbrunsfeld) back in Dec 1, 2014.
 
 ## json/no-activationEvents
 

@@ -27,6 +27,7 @@ const plugin = {
     "no-dock.getActiveTextEditor": require("./rules/no-dock.getActiveTextEditor.js"),
     "useString-path.dirname": require("./rules/useString-path.dirname.js"),
     "no-atom.workspace.paneContainer": require("./rules/no-atom.workspace.paneContainer.js"),
+    "modify-atom.views.addViewProvider-argumentsLength": require("./rules/modify-atom.views.addViewProvider-argumentsLength.js"),
   }
 };
 

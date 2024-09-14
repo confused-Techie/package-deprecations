@@ -23,5 +23,6 @@ The below files all have matches for `deprecate` within `./src`
 * `./src/theme-manager.js`: DONE
 * `./src/token.js`: DONE
 * `./src/uri-handler-registry.js`: DONE
-* `./src/view-registry.js`:
+* `./src/view-registry.js`: DONE
+* `./src/wasm-tree-sitter-language-mode.js`: DONE?
 * `./src/workspace.js`: DONE
