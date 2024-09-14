@@ -1,57 +1,70 @@
 # Package Deprecations
 
-## WARNING: WIP
+The goal of this repository is to provide the tooling required to quickly scan a Pulsar Community Package,
+and determine if it contains any deprecations, and the severity of them.
 
-This repository is ongoing large scale changes and is in a state of slight chaos.
-While originally this repositories goals were going to be achieved via `jscodeshift` and a slew of tools designed in a similar manner,
-it soon became obvious that this wasn't the right tool for the job.
+These deprecations vary in nature and source, so we will need to ensure the tooling we use is flexible enough to do so.
 
-Instead the approach is shifting to a more linting like one. Using `eslint` to power the main cycle of work,
-scanning code with plugins and parsers, and all custom rules to catch the issues we care about, and report them.
+<details>
+  <summary>Details of the original implementation</summary>
 
-As this repository is much more concerned with just knowing and reporting errors, it makes much more sense to do so like this, rather than handicap larger tools meant to automatically fix them.
+Originally this repository had implemented this functionality following a codemod style.
+With the basis of the behavior based on [`jscodeshift`](https://www.npmjs.com/package/jscodeshift),
+with tooling like `dirshift` and `jsonshift` being created to extend this behavior to other filetypes.
 
-In this way we can scan a community package, and get back issues with that repo that require fixing. So we are aware of issues, and can even assign severity and documentation to them. Ideally allowing anyone's usage of such a tool.
+But it quickly became apparent that codemods were not the right tool for this task.
+Since while these tools are flexible and provide great insight into a codebase, their aim
+was obviously to resolve issues in code. Not just find them.
 
----
+So to that extent we had to rethink this work, to prioritize identifying issues, rather than fixing them.
 
-The goal of this repository is to provide the tooling required to quickly scan a Pulsar community package, and alert of any deprecations it may have.
+If you'd like to view the original implementation details, those have been moved to the `codemod-style` dir.
+</details>
 
-These deprecations vary in nature and source, so we need the tools flexible enough to do so.
 
-This repository will use code scanning tools in order to inspect the source code of a package, and find any issues that may exist.
+To approach this issue in a flexible way in this repository, our main tool is [`eslint`](https://eslint.org/) as it provides a consistent way to view the inner details of a codebase.
 
-## Features Needed
+Extending this we will use different parsers and plugins to be able to handle the details and filetypes we need to.
 
-* [X] Ability to scan JavaScript.
-* [X] Ability to check directory structure.
-* [ ] Ability to scan CoffeeScript.
-* [X] Ability to scan JSON.
-* [ ] Ability to scan CSS.
-* [ ] Ability to check if a file has to be modified before any transformations. Such as JSX
+Although, considering the variety of languages a package may be written in within the Pulsar ecosystem, we need several tools to accomplish this.
 
-## The How
+## Languages
 
-We mainly use [`jscodeshift`](https://www.npmjs.com/package/jscodeshift) to get a view into the JavaScript code of the community package and inspect it.
+### JavaScript
 
-We also use [`dirshift`](./dirshift) to inspect a directory structure of a package.
+The de facto methodology of inserting logic into a Pulsar community package in the recent years, is our primary target for identifying deprecations.
+As this language is supported natively, we don't need to do anything extra here, except add our custom rules.
 
-## Setup
+### JSON
 
-Within `./transformers/` is different transformations that should be applied to a community package, their name should make it obvious what they intend to do or check for, but following their name is the type of transformation it is:
+As the JSON file format is what's used in every package's `package.json` file as well as some other configuration files, it requires fantastic support in order to catch deprecations.
+For this we use `jsonc-eslint-parser` and `eslint-plugin-jsonc` in order to support finding any issues within the code.
 
-* `[name].jscode.[ext]`: Transformed using `jscodeshift`
-* `[name].dir.[ext]`: Transformed using `dirshift`
-* `[name].json.[ext]`: Transformed using `jsonshift`
-* `[name].coffee.[ext]`: Transformed using `???`
-* `[name].css.[ext]`: Transformed using `???`
+## Methodology
 
-## Usage
+In order to support the required functionality, we use a custom setup of eslint that's loaded only with our custom ruleset in order to find issues within a community package.
 
-After getting a community package in a directory you'd like to check, just run:
+Each different language we need to check gets it's own eslint plugin, these are stored in the respective directories:
 
-```
-npm run transform -- --paths=/path/to/package
-```
+* `js`
+* `json`
 
-The errors generated from the package will be logged to the console.
+Each plugin then has as many rules as needed for our purposes within it, that's able to work with the language directory it resides in.
+
+## Testing
+
+To test every single rule, we have extended the eslint rule format slightly.
+We add a `test` key to each rule, which within we expect to find `valid` and `invalid` entries, which match those of the same name for the eslint RuleTester module. Which allows us to use eslint tooling for testing, without needing to write much code.
+
+## Support
+
+But keep in mind this project is still a work in progress.
+Below we will outline the type of support needed vs. what we have.
+
+* [X] Native JavaScript
+* [X] JSON
+* [ ] CoffeeScript
+* [ ] Directory Structure
+* [ ] CSS
+* [ ] Less
+* [ ] JSX
