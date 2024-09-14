@@ -68,3 +68,16 @@ Below we will outline the type of support needed vs. what we have.
 * [ ] CSS
 * [ ] Less
 * [ ] JSX
+
+### Deprecations
+
+Considering Atom/Pulsar's long history, it's no surprise there have been many changes over time.
+Considering this, it's the goal of `package-deprecations` to have the ability to identify any deprecation within a package originating from the first version of Atom.
+
+Considering Atom's API was only ever considered stable when `v1.0.0` was released, and there was a large effort at that time to get as many package's as possible compliant, it only makes sense to start there for our deprecations.
+
+This is where the majority of deprecations listed in `rules-todo.md` come from, being those taken from the data dumps made by the Atom team at the time to identify out of support packages.
+
+From there, we hope to then bring all the modern rules possible in, getting all current deprecations into this repository.
+
+The last step then would be to identify any deprecations that have existed between modern day and version one, and add those as well.
