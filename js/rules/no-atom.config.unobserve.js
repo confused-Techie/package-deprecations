@@ -1,9 +1,10 @@
 
 module.exports = {
   meta: {
-    type: "suggestion",
+    type: "problem",
     docs: {
       description: "Warn on usage of `atom.config::unobserve`."
+      // TODO: Research: While this warning says it does nothing, within Pulsar 1.120.0 the method is totally removed.
     },
     messages: {
       default: "Config::unobserve no longer does anything. Call `.dispose()` on the object returned by Config::observe instead."

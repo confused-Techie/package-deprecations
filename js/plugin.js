@@ -20,6 +20,9 @@ const plugin = {
     "no-atom.registerRepresentationClass": require("./rules/no-atom.registerRepresentationClass.js"),
     "no-atom.registerRepresentationClasses": require("./rules/no-atom.registerRepresentationClasses.js"),
     "rename-atom.workspace-changeFocus": require("./rules/rename-atom.workspace-changeFocus.js"),
+    "no-atom.showSaveDialogSync": require("./rules/no-atom.showSaveDialogSync.js"),
+    "no-promise.done": require("./rules/no-promise.done.js"),
+    "no-dock.getActiveTextEditor": require("./rules/no-dock.getActiveTextEditor.js"),
   }
 };
 

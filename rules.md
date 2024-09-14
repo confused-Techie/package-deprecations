@@ -5,7 +5,7 @@ A breakdown of all rules within this repository.
 ## js/no-atom.config.unobserve
 
 * _Breaking Pulsar/Atom API Version_: `v1.0.0`
-* _Severity_: `suggestion`
+* _Severity_: `warn`
 * _Source_: [`benogle/deprecation-data`](https://github.com/benogle/deprecation-data)
 
 Config::unobserve no longer does anything. Call `.dispose()` on the object returned by Config::observe instead.
@@ -180,6 +180,50 @@ The `changeFocus` option has been renamed to `activatePane`.
 
 In `atom.workspace.openURIInPane()` options:
 The `changeFocus` option has been renamed to `activatePane`.
+
+## js/no-atom.showSaveDialogSync
+
+* _Deprecated Pulsar/Atom API Version_: `v1.25.0`
+* _Severity_: `warn`
+* _Source_: [`atom/atom#16245`](https://github.com/atom/atom/pull/16245), [`pulsar-edit/pulsar #7f01a8e`](https://github.com/pulsar-edit/pulsar/commit/7f01a8e7185657eba461bcf559843062b8430e02)
+
+`atom.showSaveDialogSync` is deprecated and will be removed soon.
+Please, implement `::saveAs` and `::getSaveDialogOptions` instead for pane items or use `Pane::saveItemAs` for programmatic saving.
+
+This API endpoint was deprecated by [`@50Wliu`](https://github.com/50Wliu) back in Nov 20, 2017.
+It has remained a deprecated endpoint the entire time, with migration notes available in their PR replies, or further used in [`atom/markdown-preview#521`](https://github.com/atom/markdown-preview/pull/521).
+
+## js/no-promise.done
+
+* _Deprecated Pulsar/Atom API Version_: `v1.1.0`
+* _Severity_: `warn`
+* _Source_: [`atom/atom@v1.1.0`](https://github.com/atom/atom/blob/v1.1.0/src/atom.coffee#L846), [`atom/atom#8256`](https://github.com/atom/atom/pull/8256), [`atom/atom #fb341b0`](https://github.com/atom/atom/commit/fb341b094b335e1cd1bbea31048ff1869707385d)
+
+Pulsar now uses ES6 Promises instead of Q.
+Call `Promise.then()` instead of `Promise.done()`.
+
+This API endpoint was deprecated by [`@nathansobo`](https://github.com/nathansobo) back in Sep 18, 2015.
+It has remained deprecated since then, after removing the `Q` library, with the following commit notes for it's inclusion:
+
+```
+Base on our research, this is the only non-standard Q method people are
+really calling. We didn’t check the really obscure stuff, but this
+should cover the vast majority of issues.
+
+Signed-off-by: Max Brunsfeld <maxbrunsfeld@gmail.com>
+```
+
+## js/no-dock.getActiveTextEditor
+
+* _Deprecated Pulsar/Atom API Version_: `v1.19.0`
+* _Severity_: `warn`
+* _Source_: [`atom/atom#14695`](https://github.com/atom/atom/pull/14695), [`pulsar-edit/pulsar #f8ebd71`](https://github.com/pulsar-edit/pulsar/commit/f8ebd71200af4dcc5cf6fc2d85e68247833d9acc)
+
+Text editors are not allowed in docks.
+Use `atom.workspace.getActiveTextEditor()` instead.
+
+This API endpoint was deprecated by [`@jsonrudolph`](https://github.com/atom/atom/commits?author=jasonrudolph) back in Jun 1, 2017.
+It became deprecated when Atom decided to officially deprecate any text editors in Docks, allowing them only in the workspace pane.
 
 ## json/no-activationEvents
 

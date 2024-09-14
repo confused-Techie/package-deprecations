@@ -76,7 +76,7 @@ Considering this, it's the goal of `package-deprecations` to have the ability to
 
 Considering Atom's API was only ever considered stable when `v1.0.0` was released, and there was a large effort at that time to get as many package's as possible compliant, it only makes sense to start there for our deprecations.
 
-This is where the majority of deprecations listed in `rules-todo.md` come from, being those taken from the data dumps made by the Atom team at the time to identify out of support packages.
+This is where the majority of deprecations listed in `rules-todo-v1-0-0.md` come from, being those taken from the data dumps made by the Atom team at the time to identify out of support packages.
 
 From there, we hope to then bring all the modern rules possible in, getting all current deprecations into this repository.
 
