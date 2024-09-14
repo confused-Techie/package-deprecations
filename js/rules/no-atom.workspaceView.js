@@ -6,7 +6,8 @@ module.exports = {
       description: "Disallow usage of `atom.workspaceView`"
     },
     messages: {
-      default: "`atom.workspaceView` is no longer available."
+      default: "`atom.workspaceView` is no longer available.",
+      statusBar: "The `atom.workspaceView.statusBar` global is deprecated."
     }
   },
   test: {
@@ -31,7 +32,7 @@ module.exports = {
     }, {
       // Example: https://github.com/yujinakayama/atom-lint/blob/v0.20.1/lib/atom-lint.coffee#L74
       code: "const statusBar = atom.workspaceView.statusBar;",
-      errors: [{ messageId: "default" }]
+      errors: [{ messageId: "statusBar" }]
     }]
   },
   create(context) {
@@ -43,10 +44,16 @@ module.exports = {
           node.property.type === "Identifier" &&
           node.property.name === "workspaceView"
         ) {
-          context.report({
-            node,
-            messageId: "default"
-          });
+
+          if (
+            node.parent.type === "MemberExpression" &&
+            node.parent.property.type === "Identifier" &&
+            node.parent.property.name === "statusBar"
+          ) {
+            context.report({ node, messageId: "statusBar" });
+          } else {
+            context.report({ node, messageId: "default" });
+          }
         }
       }
     };

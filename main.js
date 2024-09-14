@@ -39,8 +39,7 @@ const jsonPlugin = require("./json/plugin.js");
           "js/no-atom.syntax": "error",
           "js/no-atom.registerRepresentationClass": "error",
           "js/no-atom.registerRepresentationClasses": "error",
-          "js/no-atom.workspace.openSync-changeFocus": "error",
-          "js/no-atom.workspace.openURIInPane-changeFocus": "error",
+          "js/rename-atom.workspace-changeFocus": "error"
         }
       },
       {

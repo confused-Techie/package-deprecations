@@ -116,6 +116,12 @@ To register service providers and consumers, use the `providedServices` and `con
 In most cases you will not need the view. See the Workspace docs for alternatives: https://atom.io/docs/api/latest/Workspace.
 If you do need the view please use `atom.views.getView(atom.workspace)`, which returns an HTMLElement.
 
+In the event of `atom.workspaceView.statusBar` being used, that'll instead produce the following error:
+The `atom.workspaceView.statusBar` global is deprecated. The global was previously being
+assigned by the status-bar package, but Atom packages should never assign globals.
+In the future, this problem will be solved by an inter-package communication API available on `atom.services`.
+For now, you can get a reference to the `status-bar` element via `document.querySelector('status-bar')`.
+
 ## js/no-atom.syntax
 
 * _Breaking Pulsar/Atom API Version_: `v1.0.0`
@@ -142,20 +148,35 @@ Callers should be converted to use `atom.deserializers`.
 `atom.registerRepresentationClasses` is no longer available.
 Callers should be converted to use `atom.deserializers`.
 
-## js/no-atom.workspace.openSync-changeFocus
+## js/rename-atom.workspace.-changeFocus
 
 * _Breaking Pulsar/Atom API Version_: `v1.0.0`
 * _Severity_: `problem`
-* _Source_: [`benogle/deprecation-data`](https://github.com/benogle/deprecation-data), [`atom/atom@v1.0.0`](https://github.com/atom/atom/blob/v1.0.0/src/workspace.coffee#L405)
+* _Source_: [`benogle/deprecation-data`](https://github.com/benogle/deprecation-data)
+
+This rule technically encompasses three separate rules:
+
+### atom.workspace.open({ changeFocus })
+
+* _Source_: [`benogle/deprecation-data`](https://github.com/benogle/deprecation-data)
+
+In `atom.workspace.open()` options:
+The `changeFocus` option has been renamed to `activatePane`.
+
+While this item isn't listed directly in the source as a deprecation message, at one time it was.
+Since the package's marked for the depreciation via benogle's data, are those using
+the plan `atom.workspace.open()` method call, rather than the more complex ones below.
+
+### atom.workspace.openSync({ changeFocus })
+
+* _Source_: [`atom/atom@v1.0.0`](https://github.com/atom/atom/blob/v1.0.0/src/workspace.coffee#L405)
 
 In `atom.workspace.openSync()` options:
 The `changeFocus` option has been renamed to `activatePane`.
 
-## js/no-atom.workspace.openURIInPane-changeFocus
+### atom.workspace.openURIInPane({ changeFocus })
 
-* _Breaking Pulsar/Atom API Version_: `v1.0.0`
-* _Severity_: `problem`
-* _Source_: [`benogle/deprecation-data`](https://github.com/benogle/deprecation-data), [`atom/atom@v1.0.0`](https://github.com/atom/atom/blob/v1.0.0/src/workspace.coffee#L426)
+* _Source_: [`atom/atom@v1.0.0`](https://github.com/atom/atom/blob/v1.0.0/src/workspace.coffee#L426)
 
 In `atom.workspace.openURIInPane()` options:
 The `changeFocus` option has been renamed to `activatePane`.

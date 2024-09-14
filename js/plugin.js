@@ -19,8 +19,7 @@ const plugin = {
     "no-atom.syntax": require("./rules/no-atom.syntax.js"),
     "no-atom.registerRepresentationClass": require("./rules/no-atom.registerRepresentationClass.js"),
     "no-atom.registerRepresentationClasses": require("./rules/no-atom.registerRepresentationClasses.js"),
-    "no-atom.workspace.openSync-changeFocus": require("./rules/no-atom.workspace.openSync-changeFocus.js"),
-    "no-atom.workspace.openURIInPane-changeFocus": require("./rules/no-atom.workspace.openURIInPane-changeFocus.js"),
+    "rename-atom.workspace-changeFocus": require("./rules/rename-atom.workspace-changeFocus.js"),
   }
 };
 

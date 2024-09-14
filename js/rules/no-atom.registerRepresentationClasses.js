@@ -7,6 +7,7 @@ module.exports = {
       description: "Disallow usage of `atom.registerRepresentationClasses`"
     }
   },
+  // TODO tests 
   create(context) {
     return {
       MemberExpression(node) {
