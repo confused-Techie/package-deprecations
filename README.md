@@ -35,6 +35,12 @@ Although, considering the variety of languages a package may be written in withi
 The de facto methodology of inserting logic into a Pulsar community package in the recent years, is our primary target for identifying deprecations.
 As this language is supported natively, we don't need to do anything extra here, except add our custom rules.
 
+### CoffeeScript
+
+The original de facto methodology of inserting logic into a Pulsar community package.
+We use `@fellow/eslint-plugin-coffee` to parse CoffeeScript files into JavaScript, and run the same JavaScript eslint rules on them.
+> Note: We don't use `eslint-plugin-coffee` due to it not being able to support any new versions of eslint.
+
 ### JSON
 
 As the JSON file format is what's used in every package's `package.json` file as well as some other configuration files, it requires fantastic support in order to catch deprecations.

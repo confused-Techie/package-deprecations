@@ -14,6 +14,7 @@
   "author": "confused-Techie",
   "license": "MIT",
   "dependencies": {
+    "@fellow/eslint-plugin-coffee": "^0.4.13",
     "eslint": "^9.9.1",
     "jsonc-eslint-parser": "^2.4.0"
   }
