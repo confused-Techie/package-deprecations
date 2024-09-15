@@ -12,7 +12,11 @@ const jsonPlugin = require("./json/plugin.js");
     overrideConfig: [
       {
         // Global Config
-        ignores: ["node_modules/**", "package-lock.json"]
+        ignores: ["node_modules/**", "package-lock.json"],
+        linterOptions: {
+          reportUnusedDisableDirectives: "off",
+          //noInlineConfig: true
+        }
       },
       {
         // JavaScript Config
@@ -70,10 +74,11 @@ const jsonPlugin = require("./json/plugin.js");
   });
 
   // Lint Files
-  const results = await eslint.lintFiles(["./**/*"]);
+  const location = `${process.cwd()}/**/*`;
+  const results = await eslint.lintFiles([location]);
 
   // Format Results
-  const formatter = await eslint.loadFormatter("stylish");
+  const formatter = await eslint.loadFormatter(`${__dirname}/formatter.js`);
   const resultText = formatter.format(results);
 
   // Output

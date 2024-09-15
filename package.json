@@ -7,6 +7,9 @@
     "test": "node ./tests/index.js",
     "transform": "node ./index.js"
   },
+  "bin": {
+    "package-deprecations": "./bin/package-deprecations.js"
+  },
   "keywords": [],
   "author": "confused-Techie",
   "license": "MIT",
