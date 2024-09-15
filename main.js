@@ -50,6 +50,7 @@ const jsonPlugin = require("./json/plugin.js");
           "js/useStrings-path.basename": "warn",
           "js/no-electron.ipcRenderer.sendChannel": "warn",
           "js/no-electron.remote.require-Module": "warn",
+          "js/no-require.deprecatedModules": "warn",
         }
       },
       {

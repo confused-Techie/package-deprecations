@@ -32,6 +32,7 @@ const plugin = {
     "useStrings-path.basename": require("./rules/useStrings-path.basename.js"),
     "no-electron.ipcRenderer.sendChannel": require("./rules/no-electron.ipcRenderer.sendChannel.js"),
     "no-electron.remote.require-Module": require("./rules/no-electron.remote.require-Module.js"),
+    "no-require.deprecatedModules": require("./rules/no-require.deprecatedModules.js"),
   }
 };
 

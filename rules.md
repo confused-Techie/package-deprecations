@@ -268,6 +268,17 @@ Warn when using deprecated modules in `electron.remote.require('module')`.
 This API endpoint was deprecated by [`@thomasjo`](https://github.com/thomasjo) back in Aug 2, 2016.
 It was deprecated when upgrading the Electron version from `v0.37.8` to `v1.3.5` which bumped Atom to Node `v6` causing breaking changes in many core modules.
 
+## js/no-require.deprecatedModules
+
+* _Deprecated Pulsar/Atom API Version_: `v1.12.0`
+* _Severity_: `warn`
+* _Source_: [`atom/atom#12300`](https://github.com/atom/atom/pull/12300), [`pulsar-edit/pulsar #c876fd7`](https://github.com/atom/atom/commit/c876fd76f8daf7c3bd5932cdb488f17980197698)
+
+Disallow requiring deprecated modules.
+
+This API endpoint was deprecated by [`@thomasjo`](https://github.com/thomasjo) back in Aug 2, 2016.
+It was deprecated when upgrading the Electron version from `v0.37.8` to `v1.3.5` which bumped Atom to Node `v6` causing breaking changes in many core modules.
+
 ## js/no-atom.workspace.paneContainer
 
 * _Deprecated Pulsar/Atom API Version_: `v1.17.0`
