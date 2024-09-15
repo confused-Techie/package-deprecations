@@ -45,7 +45,11 @@ const jsonPlugin = require("./json/plugin.js");
           "js/no-dock.getActiveTextEditor": "warn",
           "js/useString-path.dirname": "warn",
           "js/no-atom.workspace.paneContainer": "warn",
-          "js/modify-atom.views.addViewProvider-argumentsLength": "warn"
+          "js/modify-atom.views.addViewProvider-argumentsLength": "warn",
+          "js/useString-path.extname": "warn",
+          "js/useStrings-path.basename": "warn",
+          "js/no-electron.ipcRenderer.sendChannel": "warn",
+          "js/no-electron.remote.require-Module": "warn",
         }
       },
       {

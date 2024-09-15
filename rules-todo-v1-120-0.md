@@ -10,7 +10,7 @@ The below files all have matches for `deprecate` within `./src`
 * `./src/config-schema.js`: DONE
 * `./src/deprecated-syntax-selectors.js`: DONE
 * `./src/dock.js`: DONE
-* `./src/electron-shims.js`: IN PROGRESS
+* `./src/electron-shims.js`: DONE
 * `./src/grammar-registry.js`:
 * `./src/main-process/atom-window.js`: DONE
 * `./src/package.js`: DONE

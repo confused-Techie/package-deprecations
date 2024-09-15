@@ -28,6 +28,10 @@ const plugin = {
     "useString-path.dirname": require("./rules/useString-path.dirname.js"),
     "no-atom.workspace.paneContainer": require("./rules/no-atom.workspace.paneContainer.js"),
     "modify-atom.views.addViewProvider-argumentsLength": require("./rules/modify-atom.views.addViewProvider-argumentsLength.js"),
+    "useString-path.extname": require("./rules/useString-path.extname.js"),
+    "useStrings-path.basename": require("./rules/useStrings-path.basename.js"),
+    "no-electron.ipcRenderer.sendChannel": require("./rules/no-electron.ipcRenderer.sendChannel.js"),
+    "no-electron.remote.require-Module": require("./rules/no-electron.remote.require-Module.js"),
   }
 };
 
